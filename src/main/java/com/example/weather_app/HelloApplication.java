@@ -12,11 +12,9 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        // Make sure "main.fxml" and "style.css" are in your resources folder
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("main.fxml")));
 
         primaryStage.setTitle("Weather 24/7");
-        // Setting a mobile-app like resolution
         primaryStage.setScene(new Scene(root, 450, 700));
         primaryStage.show();
     }
