@@ -9,6 +9,9 @@ import org.json.JSONArray;
 import javafx.application.Platform;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
+
 public class FetchWeather {
 
     public void getWeather(String city) {
@@ -49,7 +52,36 @@ public class FetchWeather {
             }
 
         }).start();
+    }
 
+    public List<String> getCitySuggestions(String query) {
+        List<String> suggestions = new ArrayList<>();
+        try {
+            String apiKey = "566988eea4abeb70f1caec04663b205b".trim();
+            String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8);
 
+            // Notice this is the geo/1.0/direct endpoint!
+            String URL = "http://api.openweathermap.org/geo/1.0/direct?q=" + encodedQuery + "&limit=5&appid=" + apiKey;
+
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder().uri(URI.create(URL)).build();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            // Parse the JSON Array
+            JSONArray jsonArray = new JSONArray(response.body());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject cityObj = jsonArray.getJSONObject(i);
+                String name = cityObj.getString("name");
+                String country = cityObj.getString("country");
+                String formattedCity = name + ", " + country;
+                if (!suggestions.contains(formattedCity)) {
+                    suggestions.add(formattedCity);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error fetching suggestions");
+            e.printStackTrace();
+        }
+        return suggestions;
     }
 }

@@ -18,7 +18,7 @@
 
                 <Label styleClass="main-title" text="Weather 24/7" />
 
-                <TextField maxWidth="Infinity" promptText="Search for a city or airport..." styleClass="search-bar" />
+                <TextField maxWidth="Infinity" promptText="Search for a city..." styleClass="search-bar" fx:id="searchBar"/>
 
                 <VBox spacing="15.0">
                     <children>
