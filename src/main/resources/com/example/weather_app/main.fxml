@@ -1,64 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane prefHeight="700.0" prefWidth="450.0" styleClass="root-pane" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.weather_app.HelloController">
+<StackPane prefHeight="700.0" prefWidth="450.0" styleClass="root-pane" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.weather_app.HelloController">
     <children>
-        <VBox maxWidth="800.0" spacing="30.0" StackPane.alignment="CENTER">
-            <StackPane.margin>
-                <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
-            </StackPane.margin>
-            <children>
-
-                <Label styleClass="main-title" text="Weather 24/7" />
-
-                <TextField maxWidth="Infinity" promptText="Search for a city..." styleClass="search-bar" fx:id="searchBar"/>
-
-                <VBox spacing="15.0">
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="main-scroll" vbarPolicy="AS_NEEDED">
+            <content>
+                <VBox maxWidth="800.0" spacing="30.0">
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
+                    </padding>
                     <children>
-                        <Label styleClass="section-title" text="Saved Cities" />
-                        <FlowPane hgap="15.0" vgap="15.0">
+                        <Label styleClass="main-title" text="Weather 24/7" />
+
+                        <TextField fx:id="searchBar" maxWidth="Infinity" promptText="Search for a city..." styleClass="search-bar" />
+
+                        <Label fx:id="errorLabel" textFill="#ff6b6b" visible="false" />
+
+                        <VBox spacing="15.0">
                             <children>
-                                <VBox styleClass="weather-tile">
-                                    <children>
-                                        <Label styleClass="tile-city" text="London" />
-                                        <Label styleClass="tile-desc" text="Rainy" />
-                                        <Label styleClass="tile-temp" text="15°" />
-                                    </children>
-                                </VBox>
-                                <VBox styleClass="weather-tile">
-                                    <children>
-                                        <Label styleClass="tile-city" text="New York" />
-                                        <Label styleClass="tile-desc" text="Clear" />
-                                        <Label styleClass="tile-temp" text="22°" />
-                                    </children>
-                                </VBox>
+                                <Label styleClass="section-title" text="Saved Cities" />
+                                <FlowPane fx:id="savedCitiesContainer" hgap="15.0" vgap="15.0" />
                             </children>
-                        </FlowPane>
+                        </VBox>
+
+                        <VBox spacing="15.0" VBox.vgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="section-title" text="Popular Searches" />
+                                <FlowPane fx:id="popularSearchesContainer" hgap="10.0" vgap="10.0" />
+                            </children>
+                        </VBox>
                     </children>
                 </VBox>
-
-                <VBox spacing="15.0" VBox.vgrow="ALWAYS">
-                    <children>
-                        <Label styleClass="section-title" text="Popular Searches" />
-                        <FlowPane hgap="10.0" vgap="10.0">
-                            <children>
-                                <Button styleClass="popular-btn" text="Paris" />
-                                <Button styleClass="popular-btn" text="Tokyo" />
-                                <Button styleClass="popular-btn" text="Sydney" />
-                                <Button styleClass="popular-btn" text="Dubai" />
-                            </children>
-                        </FlowPane>
-                    </children>
-                </VBox>
-
-            </children>
-        </VBox>
+            </content>
+        </ScrollPane>
     </children>
 </StackPane>

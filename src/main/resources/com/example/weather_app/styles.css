@@ -79,3 +79,28 @@
 .popular-btn:hover {
     -fx-background-color: rgba(255, 255, 255, 0.3);
 }
+/* ScrollPane Styling - Make it transparent so the root-pane background shows */
+.main-scroll {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.main-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Optional: Make the scrollbar look a bit more modern/subtle */
+.main-scroll .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 8;
+}
+
+.main-scroll .scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+    -fx-background-radius: 4;
+}
+
+.main-scroll .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}

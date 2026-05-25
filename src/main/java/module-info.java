@@ -9,6 +9,7 @@ module com.example.weather_app {
     requires eu.hansolo.tilesfx;
     requires java.net.http;
     requires org.json;
+    requires java.prefs;
 
     opens com.example.weather_app to javafx.fxml;
     exports com.example.weather_app;
