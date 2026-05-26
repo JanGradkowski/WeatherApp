@@ -1,3 +1,7 @@
+<img width="335" height="547" alt="image" src="https://github.com/user-attachments/assets/a80873ae-aa01-46e2-bb7f-633e1213528b" />
+
+
+
 🌤️ Weather 24/7 (JavaFX Desktop App)
 (Note: Record a 10-second GIF of you searching a city and the UI updating, and put the link here)
 
