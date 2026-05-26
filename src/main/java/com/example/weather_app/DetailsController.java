@@ -25,7 +25,7 @@ public class DetailsController {
     @FXML private Label currentTempLabel;
     @FXML private Label currentDescLabel;
     @FXML private VBox forecastContainer;
-    @FXML private VBox dailyForecastContainer; // NEW
+    @FXML private VBox dailyForecastContainer; 
     @FXML private Button saveBtn;
 
     private String currentCity;
@@ -62,7 +62,6 @@ public class DetailsController {
         }
 
         // 2. Populate the Daily forecast (Next 5 Days)
-        // The API returns 40 blocks total (8 per day). We will look specifically for midday (12:00:00)
         for (int i = 0; i < forecastList.length(); i++) {
             JSONObject block = forecastList.getJSONObject(i);
             String dtTxt = block.getString("dt_txt");
