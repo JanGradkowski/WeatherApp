@@ -108,27 +108,21 @@ public class HelloController {
             tempLabel.getStyleClass().add("tile-temp");
 
             tile.getChildren().addAll(cityLabel, descLabel, tempLabel);
-
-            // Make the tile clickable (Left click)
             tile.setOnMouseClicked(e -> {
-                // We only want left-clicks to open the details page!
                 if (e.getButton() == javafx.scene.input.MouseButton.PRIMARY) {
                     executeWeatherSearch(city);
                 }
             });
             tile.setStyle("-fx-cursor: hand;");
 
-            // ADD THIS: Right-click context menu to delete
             ContextMenu contextMenu = new ContextMenu();
             MenuItem deleteItem = new MenuItem("Remove City");
-            deleteItem.setStyle("-fx-text-fill: black;"); // Ensure text is visible
+            deleteItem.setStyle("-fx-text-fill: black;");
             deleteItem.setOnAction(e -> {
                 UserSession.removeCity(city);
-                loadSavedCities(); // Instantly refresh the UI!
+                loadSavedCities();
             });
             contextMenu.getItems().add(deleteItem);
-
-            // Attach the menu to the tile
             tile.setOnContextMenuRequested(e ->
                     contextMenu.show(tile, e.getScreenX(), e.getScreenY())
             );
