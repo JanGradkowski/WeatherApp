@@ -1,5 +1,6 @@
 <img width="335" height="547" alt="image" src="https://github.com/user-attachments/assets/a80873ae-aa01-46e2-bb7f-633e1213528b" />
-![Uploading Nagrywanie 2026-05-26 160025.gif…]()
+<img width="674" height="1098" alt="Nagrywanie 2026-05-26 160025" src="https://github.com/user-attachments/assets/bfd7413e-7f8a-475f-9eb9-8c2a381130a6" />
+
 
 🌤️ Weather 24/7 (JavaFX Desktop App)
 A modern, asynchronous desktop weather application built with Java, JavaFX, and the OpenWeatherMap API.
